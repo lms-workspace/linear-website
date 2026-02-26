@@ -1,26 +1,19 @@
-import { Container } from "@/components/ui/Container";
-import { Section } from "@/components/ui/Section";
+import { ServicesHero } from "@/components/services/ServicesHero";
+import { ServicePillar } from "@/components/services/ServicePillar";
+import { OpenClawCallout } from "@/components/services/OpenClawCallout";
+import { PILLARS } from "@/components/services/data";
 
 export default function Services() {
+  const [pillar1, pillar2, pillar3, pillar4] = PILLARS;
+
   return (
     <>
-      <Section id="services">
-        <Container>
-          <h1
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "var(--text-h1)",
-              color: "var(--color-text-primary)",
-              marginBottom: "var(--space-lg)",
-            }}
-          >
-            Services &amp; Capabilities
-          </h1>
-          <p style={{ color: "var(--color-text-secondary)" }}>
-            Full services and capabilities page — content coming soon.
-          </p>
-        </Container>
-      </Section>
+      <ServicesHero />
+      <ServicePillar pillar={pillar1} index={0} />
+      <ServicePillar pillar={pillar2} index={1} />
+      <ServicePillar pillar={pillar3} index={2} />
+      <OpenClawCallout />
+      <ServicePillar pillar={pillar4} index={3} />
     </>
   );
 }
