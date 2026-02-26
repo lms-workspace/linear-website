@@ -1,24 +1,51 @@
+"use client";
+
+import { useState, useMemo } from "react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { WorkHero } from "@/components/work/WorkHero";
+import { WorkFilter } from "@/components/work/WorkFilter";
+import { ProjectCard } from "@/components/work/ProjectCard";
+import { PROJECTS } from "@/components/work/projectsData";
+import { motion } from "framer-motion";
 
 export default function Work() {
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+
+  const filteredProjects = useMemo(() => {
+    if (!activeCategory) return PROJECTS;
+    return PROJECTS.filter((p) => p.categories.includes(activeCategory));
+  }, [activeCategory]);
+
   return (
     <>
-      <Section id="work">
+      <WorkHero />
+      <Section id="work-grid">
         <Container>
-          <h1
+          <WorkFilter
+            activeCategory={activeCategory}
+            onSelect={setActiveCategory}
+          />
+          <motion.div
+            layout
+            className="layout-grid"
             style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "var(--text-h1)",
-              color: "var(--color-text-primary)",
-              marginBottom: "var(--space-lg)",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+              gap: "var(--space-lg)",
             }}
           >
-            Work
-          </h1>
-          <p style={{ color: "var(--color-text-secondary)" }}>
-            Portfolio — apps, dashboards, websites. Content coming soon.
-          </p>
+            {PROJECTS.map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                isFilteredOut={
+                  activeCategory !== null &&
+                  !project.categories.includes(activeCategory)
+                }
+              />
+            ))}
+          </motion.div>
         </Container>
       </Section>
     </>
