@@ -60,6 +60,29 @@ body::before {
   border-radius: var(--radius-md);
 }
 
+/* Hero: ambient glow blob pulse */
+@keyframes glow-blob-breathe {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+}
+
+/* Hero: subtle grid background (depth/structure) */
+.hero-grid-bg {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
 /* Utility: subtle glow */
 .glow-sm {
   box-shadow: var(--shadow-glow);
