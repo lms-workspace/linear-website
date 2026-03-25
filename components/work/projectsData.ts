@@ -3,6 +3,7 @@ export interface Project {
   title: string;
   categories: string[];
   result: string;
+  screenshot?: string;
 }
 
 export const PROJECTS: Project[] = [
@@ -12,6 +13,7 @@ export const PROJECTS: Project[] = [
     categories: ["Website", "Brand System", "Marketing"],
     result:
       "Full rebrand and digital presence for nanoFIBER product line. 50+ marketing assets delivered.",
+    screenshot: "/images/work/p2p-screenshot.webp",
   },
   {
     id: "bayville",
@@ -19,6 +21,7 @@ export const PROJECTS: Project[] = [
     categories: ["Marketing", "Social Strategy"],
     result:
       "Organic growth system and content framework for local NJ bakery.",
+    screenshot: "/images/work/bayville-screenshot.webp",
   },
   {
     id: "commit",
@@ -26,6 +29,7 @@ export const PROJECTS: Project[] = [
     categories: ["Brand", "Content", "Social"],
     result:
       "160K+ following built across platforms. Millions of views. Full content and sales funnel system.",
+    screenshot: "/images/work/commit-screenshot.webp",
   },
   {
     id: "lm-fitness",
@@ -33,6 +37,7 @@ export const PROJECTS: Project[] = [
     categories: ["Operations", "Marketing"],
     result:
       "Scaled personal training revenue from $5K to $53K/month through SOPs, strategy, and outreach systems.",
+    screenshot: "/images/work/lm-fitness-screenshot.webp",
   },
   {
     id: "crm-dashboard",
@@ -40,6 +45,7 @@ export const PROJECTS: Project[] = [
     categories: ["Dashboard", "Automation"],
     result:
       "Client dashboard built with real-time reporting and automated lead tracking.",
+    screenshot: "/images/work/crm-screenshot.webp",
   },
   {
     id: "ai-agent",
@@ -47,18 +53,14 @@ export const PROJECTS: Project[] = [
     categories: ["AI Agent"],
     result:
       "Autonomous business assistant deployed for operations team.",
-  },
-  {
-    id: "saas-waitlist",
-    title: "SaaS Landing + Waitlist System",
-    categories: ["Website", "App"],
-    result: "Placeholder — ready for real project",
+    screenshot: "/images/work/ai-agent-screenshot.webp",
   },
   {
     id: "brand-kit",
     title: "Brand System Export Kit",
     categories: ["Brand System"],
-    result: "Hard-coded brand kit with full export system",
+    result: "Hard-coded brand kit with full export system for consistent multi-platform deployment.",
+    screenshot: "/images/work/brand-kit-screenshot.webp",
   },
 ];
 
