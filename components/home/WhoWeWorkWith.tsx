@@ -50,7 +50,7 @@ export function WhoWeWorkWith() {
             as="h2"
             mode="words"
             stagger={0.05}
-            className="font-display font-light text-text-primary leading-[0.95] tracking-[-0.02em] mb-8"
+            className="font-display font-normal text-text-primary leading-[0.95] tracking-[-0.02em] mb-8"
             {...{ style: { fontSize: "clamp(2.5rem, 5vw, 72px)" } } as React.HTMLAttributes<HTMLElement>}
           >
             Built for operators.

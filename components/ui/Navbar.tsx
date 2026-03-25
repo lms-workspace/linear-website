@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { RobotEye } from "./RobotEye";
 
 const NAV_LINKS = [
   { href: "/services", label: "Services" },
@@ -53,12 +54,12 @@ export function Navbar() {
         }`}
       >
         <div className="flex items-center justify-between px-8 md:px-12 lg:px-20 xl:px-32 h-20 md:h-24">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <span className="font-display font-bold text-text-primary text-2xl tracking-tight">
+          {/* Logo — big, with robot eye */}
+          <Link href="/" className="flex items-center gap-4 group">
+            <span className="font-display font-bold text-text-primary text-3xl lg:text-4xl tracking-tight">
               LMS
             </span>
-            <span className="w-2 h-2 rounded-full bg-accent shadow-[0_0_12px_rgba(204,255,0,0.6)] group-hover:shadow-[0_0_24px_rgba(204,255,0,0.9)] transition-shadow" />
+            <RobotEye />
           </Link>
 
           {/* Desktop nav */}
@@ -69,7 +70,7 @@ export function Navbar() {
                 <Link
                   key={href}
                   href={href}
-                  className={`relative font-body text-sm font-medium tracking-wide transition-colors duration-300 py-2 ${
+                  className={`relative font-body text-base font-medium tracking-wide transition-colors duration-300 py-2 ${
                     isActive ? "text-accent" : "text-text-secondary hover:text-text-primary"
                   }`}
                 >
@@ -82,7 +83,7 @@ export function Navbar() {
             })}
             <Link
               href="/contact"
-              className="font-body text-sm font-semibold text-bg bg-accent px-6 py-2.5 rounded-full transition-all duration-300 hover:shadow-[0_0_40px_rgba(204,255,0,0.35)]"
+              className="font-body text-base font-semibold text-bg bg-accent px-7 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_40px_rgba(204,255,0,0.35)]"
             >
               Start a project
             </Link>
@@ -117,7 +118,7 @@ export function Navbar() {
               href={href}
               data-mobile-link
               onClick={() => setMobileOpen(false)}
-              className={`font-display font-light text-5xl tracking-tight transition-colors duration-300 ${
+              className={`font-display font-bold text-5xl tracking-tight transition-colors duration-300 ${
                 pathname === href ? "text-accent" : "text-text-primary hover:text-accent"
               }`}
             >

@@ -109,7 +109,7 @@ export function Hero() {
               duration={0.4}
               delay={0.1}
               scrollTrigger={false}
-              className="font-display font-light text-text-primary leading-[0.9] tracking-[-0.04em]"
+              className="font-display font-normal text-text-primary leading-[0.9] tracking-[-0.04em]"
               {...{ style: { fontSize: "clamp(4rem, 10vw, 150px)" } } as React.HTMLAttributes<HTMLElement>}
             >
               One operator.
@@ -121,7 +121,7 @@ export function Hero() {
               duration={0.4}
               delay={0.4}
               scrollTrigger={false}
-              className="font-display font-light text-accent leading-[0.9] tracking-[-0.04em]"
+              className="font-display font-normal text-accent leading-[0.9] tracking-[-0.04em]"
               {...{ style: { fontSize: "clamp(4rem, 10vw, 150px)" } } as React.HTMLAttributes<HTMLElement>}
             >
               Every capability.
@@ -169,7 +169,7 @@ export function Hero() {
         <div className="flex flex-wrap gap-12 mt-12 pt-8 border-t border-white/[0.06]">
           {STATS.map((stat) => (
             <div key={stat.label} data-stat className="flex flex-col">
-              <span className="font-display font-light text-accent text-4xl tracking-tight">
+              <span className="font-display font-normal text-accent text-4xl tracking-tight">
                 <CountUp end={stat.end} prefix={stat.prefix} suffix={stat.suffix} duration={1800} />
               </span>
               <span className="font-body text-text-muted text-xs tracking-wider uppercase mt-1">

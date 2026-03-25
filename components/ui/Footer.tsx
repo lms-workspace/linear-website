@@ -21,7 +21,7 @@ export function Footer() {
             as="p"
             mode="words"
             stagger={0.04}
-            className="font-display font-light text-text-primary/10 leading-[0.95] tracking-[-0.03em]"
+            className="font-display font-normal text-text-primary/10 leading-[0.95] tracking-[-0.03em]"
             {...{ style: { fontSize: "clamp(3rem, 8vw, 120px)" } } as React.HTMLAttributes<HTMLElement>}
           >
             The AI growth engine.
@@ -31,7 +31,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 py-8 border-t border-white/[0.06]">
           <div className="flex items-center gap-6">
-            <span className="font-display font-light text-text-primary text-sm">
+            <span className="font-display font-normal text-text-primary text-sm">
               LMS
             </span>
             <span className="text-text-muted text-xs">

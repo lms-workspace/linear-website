@@ -4,7 +4,7 @@ import "@/styles/globals.css";
 import { PageShell } from "@/components/ui/PageShell";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import { CustomCursor } from "@/components/ui/CustomCursor";
-import { AmbientGlow } from "@/components/ui/AmbientGlow";
+// AmbientGlow removed — replaced by RobotEye in navbar
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -83,7 +83,6 @@ export default function RootLayout({
     >
       <body>
         <SmoothScroll>
-          <AmbientGlow />
           <CustomCursor />
           <PageShell>{children}</PageShell>
         </SmoothScroll>

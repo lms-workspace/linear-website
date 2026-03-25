@@ -110,7 +110,7 @@ export function HowItWorks() {
               as="h2"
               mode="words"
               stagger={0.05}
-              className="font-display font-light text-text-primary text-[clamp(2.5rem,5vw,72px)] leading-tight mb-4"
+              className="font-display font-normal text-text-primary text-[clamp(2.5rem,5vw,72px)] leading-tight mb-4"
             >
               Three steps. Full deployment.
             </SplitText>

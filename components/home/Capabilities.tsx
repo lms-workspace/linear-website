@@ -83,7 +83,7 @@ export function Capabilities() {
           as="h2"
           mode="words"
           stagger={0.04}
-          className="font-display font-light text-text-primary leading-[0.95] tracking-[-0.02em]"
+          className="font-display font-normal text-text-primary leading-[0.95] tracking-[-0.02em]"
           {...{ style: { fontSize: "clamp(2.5rem, 5vw, 72px)" } } as React.HTMLAttributes<HTMLElement>}
         >
           Full-stack operations. Single point of contact.
@@ -113,7 +113,7 @@ export function Capabilities() {
 
             <div className="relative z-10 h-full flex flex-col justify-between">
               <h3
-                className={`font-display font-light leading-[1.05] tracking-tight whitespace-pre-line ${
+                className={`font-display font-normal leading-[1.05] tracking-tight whitespace-pre-line ${
                   cap.accent ? "text-bg" : "text-text-primary"
                 }`}
                 style={{ fontSize: cap.accent ? "clamp(2rem, 4vw, 48px)" : "clamp(1.25rem, 2vw, 24px)" }}

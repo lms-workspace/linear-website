@@ -81,7 +81,7 @@ export function Repositioning() {
           as="h2"
           mode="words"
           stagger={0.05}
-          className="font-display font-light text-text-primary leading-[0.95] tracking-[-0.03em]"
+          className="font-display font-normal text-text-primary leading-[0.95] tracking-[-0.03em]"
           {...{ style: { fontSize: "clamp(2.5rem, 6vw, 88px)" } } as React.HTMLAttributes<HTMLElement>}
         >
           The old model is dead.

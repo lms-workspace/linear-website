@@ -33,7 +33,7 @@ export function FinalCTA() {
           mode="chars"
           stagger={0.02}
           duration={0.5}
-          className="font-display font-light text-accent leading-[0.95] tracking-[-0.03em] mb-8"
+          className="font-display font-normal text-accent leading-[0.95] tracking-[-0.03em] mb-8"
           {...{ style: { fontSize: "clamp(3rem, 7vw, 100px)" } } as React.HTMLAttributes<HTMLElement>}
         >
           Ready to deploy?

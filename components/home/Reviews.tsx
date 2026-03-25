@@ -76,7 +76,7 @@ export function Reviews() {
           as="h2"
           mode="words"
           stagger={0.04}
-          className="font-display font-light text-text-primary leading-[0.95] tracking-[-0.02em]"
+          className="font-display font-normal text-text-primary leading-[0.95] tracking-[-0.02em]"
           {...{ style: { fontSize: "clamp(2rem, 4.5vw, 64px)" } } as React.HTMLAttributes<HTMLElement>}
         >
           Real results. No case study fluff.
@@ -93,7 +93,7 @@ export function Reviews() {
             >
               {/* Large metric */}
               <div className="mb-6">
-                <span className="font-display font-light text-accent text-5xl tracking-tight">
+                <span className="font-display font-normal text-accent text-5xl tracking-tight">
                   {r.metric}
                 </span>
                 <span className="block font-mono text-text-muted text-xs tracking-wider uppercase mt-1">
