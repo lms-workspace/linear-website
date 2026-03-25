@@ -7,11 +7,23 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { TextRevealOnScroll } from "@/components/ui/TextRevealOnScroll";
 import { ClipPathReveal } from "@/components/ui/ClipPathReveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import Image from "next/image";
 import Link from "next/link";
 
 export function AboutContent() {
   return (
-    <Section id="about" className="!pt-32 lg:!pt-40 relative overflow-hidden">
+    <Section id="about" className="!pt-0 relative overflow-hidden">
+      {/* Full-bleed hero image — the operator */}
+      <div className="relative w-full h-[50vh] md:h-[70vh] mb-16">
+        <Image
+          src="/images/about-hero-operator.webp"
+          alt="One operator commanding a wall of dashboards"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg" />
+      </div>
 
       <Container>
         <SplitText
