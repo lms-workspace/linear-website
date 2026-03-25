@@ -13,21 +13,17 @@ const WORDS = [
   "SYSTEMS",
 ];
 
-/**
- * Full-width scrolling text strip.
- * Breaks up sections with kinetic energy.
- */
 export function MarqueeStrip() {
   return (
-    <div className="py-6 border-y border-border/30 overflow-hidden bg-surface-1/50 backdrop-blur-sm">
-      <InfiniteMarquee speed={60} gap="0px" pauseOnHover>
+    <div className="py-8 border-y border-white/[0.08] overflow-hidden">
+      <InfiniteMarquee speed={50} gap="0px" pauseOnHover>
         {WORDS.map((word) => (
           <span
             key={word}
-            className="font-display font-bold text-[clamp(1.5rem,3vw,2.5rem)] text-text-muted/20 uppercase tracking-wider whitespace-nowrap px-8"
+            className="font-display font-light text-[clamp(2rem,4vw,3.5rem)] text-text-primary/15 uppercase tracking-wider whitespace-nowrap px-8 hover:text-accent/30 transition-colors duration-500"
           >
             {word}
-            <span className="text-accent/40 mx-6">·</span>
+            <span className="text-accent/30 mx-8">/</span>
           </span>
         ))}
       </InfiniteMarquee>

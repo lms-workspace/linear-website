@@ -4,10 +4,11 @@ import "@/styles/globals.css";
 import { PageShell } from "@/components/ui/PageShell";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import { CustomCursor } from "@/components/ui/CustomCursor";
+import { AmbientGlow } from "@/components/ui/AmbientGlow";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["700"],
+  weight: ["300", "400", "700"],
   variable: "--font-display",
   display: "swap",
   fallback: ["sans-serif"],
@@ -82,6 +83,7 @@ export default function RootLayout({
     >
       <body>
         <SmoothScroll>
+          <AmbientGlow />
           <CustomCursor />
           <PageShell>{children}</PageShell>
         </SmoothScroll>

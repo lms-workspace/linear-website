@@ -3,7 +3,6 @@
 import { Container } from "@/components/ui/Container";
 import { SplitText } from "@/components/ui/SplitText";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { GlowBlob } from "@/components/ui/GlowBlob";
 
 export function WorkHero() {
   return (
@@ -11,12 +10,6 @@ export function WorkHero() {
       id="work-hero"
       className="hero-grid-bg relative overflow-hidden flex items-center min-h-[40vh] bg-bg"
     >
-      <GlowBlob
-        color="rgba(204, 255, 0, 0.4)"
-        size={320}
-        opacity={0.08}
-        blur="80px"
-      />
 
       <Container as="div" className="relative z-10 py-32">
         <SplitText

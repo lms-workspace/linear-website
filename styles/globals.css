@@ -96,6 +96,23 @@ body::before {
   100% { transform: translateY(100vh); }
 }
 
+/* Etherfuse-style ambient glow drift */
+@keyframes glow-drift {
+  0%   { top: 10%; left: 10%; }
+  25%  { top: 15%; left: 85%; }
+  50%  { top: 80%; left: 75%; }
+  75%  { top: 70%; left: 15%; }
+  100% { top: 10%; left: 10%; }
+}
+
+@keyframes glow-drift-2 {
+  0%   { top: 70%; left: 80%; }
+  25%  { top: 20%; left: 60%; }
+  50%  { top: 30%; left: 10%; }
+  75%  { top: 85%; left: 40%; }
+  100% { top: 70%; left: 80%; }
+}
+
 /* ── Component utilities ─────────────────────────────── */
 
 /* Gradient border card (used across multiple components) */

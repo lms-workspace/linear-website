@@ -6,20 +6,12 @@ import { SplitText } from "@/components/ui/SplitText";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { TextRevealOnScroll } from "@/components/ui/TextRevealOnScroll";
 import { ClipPathReveal } from "@/components/ui/ClipPathReveal";
-import { GlowBlob } from "@/components/ui/GlowBlob";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import Link from "next/link";
 
 export function AboutContent() {
   return (
     <Section id="about" className="!pt-32 lg:!pt-40 relative overflow-hidden">
-      <GlowBlob
-        color="rgba(204, 255, 0, 0.4)"
-        size={500}
-        opacity={0.08}
-        blur="120px"
-        duration={25}
-      />
 
       <Container>
         <SplitText

@@ -4,19 +4,11 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SplitText } from "@/components/ui/SplitText";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { GlowBlob } from "@/components/ui/GlowBlob";
 import { ContactForm } from "./ContactForm";
 
 export function ContactContent() {
   return (
     <Section id="contact" className="!pt-32 lg:!pt-40 relative overflow-hidden">
-      <GlowBlob
-        color="rgba(204, 255, 0, 0.4)"
-        size={400}
-        opacity={0.06}
-        blur="100px"
-        duration={22}
-      />
 
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">

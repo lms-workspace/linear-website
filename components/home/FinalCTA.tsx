@@ -2,7 +2,6 @@
 
 import { SplitText } from "@/components/ui/SplitText";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { GlowBlob } from "@/components/ui/GlowBlob";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { PixelGrid } from "@/components/ui/PixelGrid";
 import Link from "next/link";
@@ -27,8 +26,6 @@ export function FinalCTA() {
         />
       </div>
 
-      <GlowBlob color="rgba(204, 255, 0, 0.5)" size={600} opacity={0.1} blur="140px" />
-      <GlowBlob color="rgba(163, 230, 53, 0.4)" size={400} opacity={0.06} blur="100px" duration={15} />
 
       <div className="relative z-10 text-center px-6 max-w-[900px]">
         <SplitText
@@ -36,7 +33,7 @@ export function FinalCTA() {
           mode="chars"
           stagger={0.02}
           duration={0.5}
-          className="font-display font-bold text-accent leading-[0.95] tracking-[-0.03em] mb-8"
+          className="font-display font-light text-accent leading-[0.95] tracking-[-0.03em] mb-8"
           {...{ style: { fontSize: "clamp(3rem, 7vw, 100px)" } } as React.HTMLAttributes<HTMLElement>}
         >
           Ready to deploy?

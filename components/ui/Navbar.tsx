@@ -31,15 +31,13 @@ export function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  // Animate mobile menu
   useEffect(() => {
     if (!mobileMenuRef.current) return;
     const links = mobileMenuRef.current.querySelectorAll("[data-mobile-link]");
-
     if (mobileOpen) {
       gsap.fromTo(links,
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: "power3.out", delay: 0.2 }
+        { y: 60, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, stagger: 0.08, ease: "power3.out", delay: 0.2 }
       );
     }
   }, [mobileOpen]);
@@ -54,39 +52,39 @@ export function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <div className="flex items-center justify-between px-6 md:px-12 lg:px-20 xl:px-32 h-16 md:h-20">
-          {/* Logo — text only, no image dependency */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <span className="font-display font-bold text-text-primary text-xl tracking-tight">
+        <div className="flex items-center justify-between px-8 md:px-12 lg:px-20 xl:px-32 h-20 md:h-24">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <span className="font-display font-bold text-text-primary text-2xl tracking-tight">
               LMS
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_rgba(204,255,0,0.5)] group-hover:shadow-[0_0_16px_rgba(204,255,0,0.8)] transition-shadow" />
+            <span className="w-2 h-2 rounded-full bg-accent shadow-[0_0_12px_rgba(204,255,0,0.6)] group-hover:shadow-[0_0_24px_rgba(204,255,0,0.9)] transition-shadow" />
           </Link>
 
-          {/* Desktop nav — minimal, right-aligned */}
-          <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-10" aria-label="Primary">
             {NAV_LINKS.map(({ href, label }) => {
               const isActive = pathname === href;
               return (
                 <Link
                   key={href}
                   href={href}
-                  className={`relative font-mono text-xs tracking-[0.15em] uppercase transition-colors duration-300 py-2 ${
-                    isActive ? "text-accent" : "text-text-muted hover:text-text-primary"
+                  className={`relative font-body text-sm font-medium tracking-wide transition-colors duration-300 py-2 ${
+                    isActive ? "text-accent" : "text-text-secondary hover:text-text-primary"
                   }`}
                 >
                   {label}
                   {isActive && (
-                    <span className="absolute -bottom-0.5 left-0 right-0 h-px bg-accent shadow-[0_0_4px_rgba(204,255,0,0.5)]" />
+                    <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-accent shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
                   )}
                 </Link>
               );
             })}
             <Link
               href="/contact"
-              className="font-mono text-xs tracking-[0.15em] uppercase text-bg bg-accent px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(204,255,0,0.3)] font-bold"
+              className="font-body text-sm font-semibold text-bg bg-accent px-6 py-2.5 rounded-full transition-all duration-300 hover:shadow-[0_0_40px_rgba(204,255,0,0.35)]"
             >
-              Start
+              Start a project
             </Link>
           </nav>
 
@@ -94,13 +92,13 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setMobileOpen((o) => !o)}
-            className="md:hidden flex flex-col justify-center gap-1.5 w-10 h-10 items-center"
+            className="md:hidden flex flex-col justify-center gap-2 w-10 h-10 items-center"
             aria-expanded={mobileOpen}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
-            <span className={`block w-5 h-0.5 bg-text-primary transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-1" : ""}`} />
-            <span className={`block w-5 h-0.5 bg-text-primary transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
-            <span className={`block w-5 h-0.5 bg-text-primary transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-1" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-text-primary rounded-full transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[5px]" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-text-primary rounded-full transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-text-primary rounded-full transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[5px]" : ""}`} />
           </button>
         </div>
       </header>
@@ -112,14 +110,14 @@ export function Navbar() {
           mobileOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
-        <nav className="flex flex-col items-center gap-10">
+        <nav className="flex flex-col items-center gap-12">
           {[...NAV_LINKS, { href: "/contact", label: "Contact" }].map(({ href, label }) => (
             <Link
               key={href}
               href={href}
               data-mobile-link
               onClick={() => setMobileOpen(false)}
-              className={`font-display font-bold text-4xl tracking-tight transition-colors duration-300 ${
+              className={`font-display font-light text-5xl tracking-tight transition-colors duration-300 ${
                 pathname === href ? "text-accent" : "text-text-primary hover:text-accent"
               }`}
             >
