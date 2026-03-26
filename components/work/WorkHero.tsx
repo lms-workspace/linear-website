@@ -11,7 +11,7 @@ export function WorkHero() {
       className="hero-grid-bg relative overflow-hidden flex items-center min-h-[40vh] bg-bg"
     >
 
-      <Container as="div" className="relative z-10 py-32">
+      <Container as="div" className="relative z-10 pt-40 pb-20">
         <SplitText
           as="h1"
           mode="words"

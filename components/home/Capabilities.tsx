@@ -13,7 +13,7 @@ const CAPABILITIES = [
   {
     title: "Growth\nEngine",
     description: "Full-funnel strategy, brand systems, campaign architecture, market intelligence.",
-    span: "col-span-1 md:col-span-2 row-span-2",
+    span: "col-span-1 md:col-span-2 md:row-span-2",
     accent: true,
   },
   {
@@ -31,7 +31,7 @@ const CAPABILITIES = [
   {
     title: "AI Infrastructure",
     description: "Custom agents, workflow automation, CRM integration, tool development.",
-    span: "col-span-1 row-span-2",
+    span: "col-span-1 md:row-span-2",
     accent: false,
   },
   {
