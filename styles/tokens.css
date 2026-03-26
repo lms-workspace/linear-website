@@ -1,25 +1,25 @@
 /**
  * LMS Design System — Tailwind v4 Theme + CSS Custom Properties
- * Linear Marketing Solutions. Dark monochrome + electric chartreuse.
- * Hybrid light/dark: dark hero + accent sections, light content sections.
+ * Linear Marketing Solutions. Light-dominant + violet/purple gradients.
+ * Hybrid: light foundation, dark hero + CTA sections.
  */
 
 @import "tailwindcss";
 
 @theme {
-  /* Colors — dark mode defaults (hero, CTA, footer) */
-  --color-bg: #09090B;
-  --color-surface-1: #111113;
-  --color-surface-2: #1A1A1D;
-  --color-surface-3: #232326;
-  --color-border: rgba(255, 255, 255, 0.06);
-  --color-border-accent: rgba(204, 255, 0, 0.2);
-  --color-text-primary: #FAFAFA;
-  --color-text-secondary: #A1A1AA;
-  --color-text-muted: #52525B;
-  --color-accent: #CCFF00;
-  --color-accent-secondary: #A3E635;
-  --color-accent-dim: rgba(204, 255, 0, 0.08);
+  /* Colors — light mode defaults (foundation) */
+  --color-bg: #FAFAFA;
+  --color-surface-1: #FFFFFF;
+  --color-surface-2: #F4F4F5;
+  --color-surface-3: #E4E4E7;
+  --color-border: rgba(0, 0, 0, 0.06);
+  --color-border-accent: rgba(124, 58, 237, 0.2);
+  --color-text-primary: #18181B;
+  --color-text-secondary: #52525B;
+  --color-text-muted: #A1A1AA;
+  --color-accent: #7C3AED;
+  --color-accent-secondary: #8B5CF6;
+  --color-accent-dim: rgba(124, 58, 237, 0.06);
 
   /* Font families — next/font overrides via CSS variables */
   --font-display: "Space Grotesk", sans-serif;
@@ -52,9 +52,9 @@
   --radius-xl: 32px;
 
   /* Shadows */
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.04);
-  --shadow-glow: 0 0 40px rgba(204, 255, 0, 0.15);
-  --shadow-glow-lg: 0 0 80px rgba(204, 255, 0, 0.2);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 40px rgba(124, 58, 237, 0.15);
+  --shadow-glow-lg: 0 0 80px rgba(124, 58, 237, 0.2);
 
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -62,11 +62,11 @@
   --transition-slow: 600ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Legacy CSS variable aliases for backwards compat during migration */
+/* Legacy CSS variable aliases */
 :root {
   --color-accent-primary: var(--color-accent);
-  --gradient-brand: linear-gradient(135deg, #CCFF00, #A3E635);
-  --gradient-glow: radial-gradient(ellipse at center, rgba(204, 255, 0, 0.08), transparent 70%);
+  --gradient-brand: linear-gradient(135deg, #7C3AED, #6366F1, #8B5CF6);
+  --gradient-glow: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.08), transparent 70%);
   --space-xs: var(--spacing-xs);
   --space-sm: var(--spacing-sm);
   --space-md: var(--spacing-md);
@@ -79,33 +79,61 @@
   --text-small: 14px;
 }
 
-/* ── Light section overrides ─────────────────────────── */
+/* ── Dark section overrides (hero, CTA, system layers) ── */
 
-.light-section {
-  --color-bg: #FAFAFA;
-  --color-surface-1: #FFFFFF;
-  --color-surface-2: #F4F4F5;
-  --color-surface-3: #E4E4E7;
-  --color-border: rgba(0, 0, 0, 0.08);
-  --color-border-accent: rgba(77, 124, 15, 0.25);
-  --color-text-primary: #18181B;
-  --color-text-secondary: #52525B;
-  --color-text-muted: #A1A1AA;
-  --color-accent: #65A30D;
-  --color-accent-secondary: #4D7C0F;
-  --color-accent-dim: rgba(101, 163, 13, 0.06);
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
-  --shadow-glow: 0 0 40px rgba(101, 163, 13, 0.12);
-  --shadow-glow-lg: 0 0 80px rgba(101, 163, 13, 0.15);
-  --gradient-brand: linear-gradient(135deg, #65A30D, #4D7C0F);
+.dark-section {
+  --color-bg: #09090B;
+  --color-surface-1: #111113;
+  --color-surface-2: #1A1A1D;
+  --color-surface-3: #232326;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-accent: rgba(139, 92, 246, 0.25);
+  --color-text-primary: #FAFAFA;
+  --color-text-secondary: #A1A1AA;
+  --color-text-muted: #52525B;
+  --color-accent: #8B5CF6;
+  --color-accent-secondary: #A78BFA;
+  --color-accent-dim: rgba(139, 92, 246, 0.08);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.2);
+  --shadow-glow-lg: 0 0 80px rgba(139, 92, 246, 0.25);
+  --gradient-brand: linear-gradient(135deg, #8B5CF6, #6366F1, #A78BFA);
 
   background: var(--color-bg);
   color: var(--color-text-primary);
 }
 
-/* CTA buttons inside light sections keep the bright chartreuse */
+/* CTA buttons in dark sections */
+.dark-section .cta-primary {
+  background: linear-gradient(135deg, #7C3AED, #6366F1);
+  color: #FFFFFF;
+}
+
+/* ── Keep .light-section for backwards compat (now matches defaults) ── */
+.light-section {
+  --color-bg: #FAFAFA;
+  --color-surface-1: #FFFFFF;
+  --color-surface-2: #F4F4F5;
+  --color-surface-3: #E4E4E7;
+  --color-border: rgba(0, 0, 0, 0.06);
+  --color-border-accent: rgba(124, 58, 237, 0.2);
+  --color-text-primary: #18181B;
+  --color-text-secondary: #52525B;
+  --color-text-muted: #A1A1AA;
+  --color-accent: #7C3AED;
+  --color-accent-secondary: #6D28D9;
+  --color-accent-dim: rgba(124, 58, 237, 0.06);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 40px rgba(124, 58, 237, 0.12);
+  --shadow-glow-lg: 0 0 80px rgba(124, 58, 237, 0.15);
+  --gradient-brand: linear-gradient(135deg, #7C3AED, #6366F1);
+
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+/* CTA buttons in light sections */
 .light-section .cta-primary {
-  --color-accent: #CCFF00;
-  background: #CCFF00;
-  color: #09090B;
+  background: linear-gradient(135deg, #7C3AED, #6366F1);
+  color: #FFFFFF;
 }

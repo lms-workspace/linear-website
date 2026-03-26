@@ -31,7 +31,7 @@ export function PixelGrid({
   pixelSize = 6,
   gap = 6,
   color = "rgba(255,255,255,0.04)",
-  hoverColor = "rgba(204, 255, 0, 0.6)",
+  hoverColor = "rgba(124, 58, 237, 0.6)",
   hoverRadius = 4,
   className = "",
 }: PixelGridProps) {
