@@ -101,7 +101,7 @@ export function AboutContent() {
               mode="words"
               stagger={0.07}
               duration={0.6}
-              className="font-display font-bold text-[#CCFF00] mb-5"
+              className="font-display font-bold bg-gradient-to-r from-[#8B5CF6] to-[#A78BFA] bg-clip-text text-transparent mb-5"
               {...{ style: { fontSize: "clamp(2rem, 4vw, 48px)" } } as React.HTMLAttributes<HTMLElement>}
             >
               Slowly, then all at once.
@@ -117,7 +117,7 @@ export function AboutContent() {
               <MagneticButton strength={0.25}>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-10 py-5 bg-[#CCFF00] text-[#09090B] font-body font-semibold text-xl rounded-full transition-all duration-150 hover:brightness-110 hover:shadow-[0_0_40px_rgba(204,255,0,0.3)]"
+                  className="inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-[#7C3AED] to-[#6366F1] text-white font-body font-semibold text-xl rounded-full transition-all duration-150 hover:brightness-110 hover:shadow-[0_0_40px_rgba(124,58,237,0.3)]"
                 >
                   Start your build
                 </Link>

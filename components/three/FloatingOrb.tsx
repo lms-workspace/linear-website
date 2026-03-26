@@ -36,8 +36,8 @@ function Orb() {
         <icosahedronGeometry args={[1.8, 20]} />
         <MeshDistortMaterial
           ref={materialRef}
-          color="#CCFF00"
-          emissive="#CCFF00"
+          color="#8B5CF6"
+          emissive="#7C3AED"
           emissiveIntensity={0.15}
           roughness={0.2}
           metalness={0.8}
@@ -66,7 +66,7 @@ function OrbGlow() {
     <mesh ref={glowRef}>
       <sphereGeometry args={[2.5, 32, 32]} />
       <meshBasicMaterial
-        color="#CCFF00"
+        color="#8B5CF6"
         transparent
         opacity={0.1}
         depthWrite={false}
@@ -87,8 +87,8 @@ export function FloatingOrb({ className = "" }: { className?: string }) {
           style={{ background: "transparent" }}
         >
           <ambientLight intensity={0.3} />
-          <directionalLight position={[5, 5, 5]} intensity={0.5} color="#CCFF00" />
-          <pointLight position={[-5, -5, 5]} intensity={0.3} color="#A3E635" />
+          <directionalLight position={[5, 5, 5]} intensity={0.5} color="#8B5CF6" />
+          <pointLight position={[-5, -5, 5]} intensity={0.3} color="#6366F1" />
           <Environment preset="night" />
           <Orb />
           <OrbGlow />

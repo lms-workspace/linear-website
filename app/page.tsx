@@ -1,4 +1,5 @@
 import { Capabilities } from "@/components/home/Capabilities";
+import { DepthReveal } from "@/components/home/DepthReveal";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { Hero } from "@/components/home/Hero";
 import { HowItWorks } from "@/components/home/HowItWorks";
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <MarqueeStrip />
       <Repositioning />
+      <DepthReveal />
       <SystemLayersSection />
       <Capabilities />
       <HowItWorks />

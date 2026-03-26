@@ -71,7 +71,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
         ref={wipeRef}
         className="fixed inset-0 z-[9990] pointer-events-none hidden"
         style={{
-          background: "linear-gradient(135deg, #CCFF00, #A3E635)",
+          background: "linear-gradient(135deg, #7C3AED, #6366F1)",
         }}
       />
       {/* Content */}

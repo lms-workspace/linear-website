@@ -31,11 +31,11 @@ function Particles() {
       vel[i3 + 1] = (Math.random() - 0.5) * 0.002;
       vel[i3 + 2] = (Math.random() - 0.5) * 0.002;
 
-      // Chartreuse to white gradient
+      // Violet to white gradient
       const t = Math.random();
-      col[i3] = 0.8 + t * 0.2;     // R
-      col[i3 + 1] = 1.0;             // G
-      col[i3 + 2] = t * 0.4;         // B (chartreuse → white)
+      col[i3] = 0.49 + t * 0.3;     // R (violet)
+      col[i3 + 1] = 0.23 + t * 0.4; // G
+      col[i3 + 2] = 0.93 + t * 0.07; // B
     }
 
     return { positions: pos, velocities: vel, colors: col };
@@ -171,7 +171,7 @@ function ConnectionLines() {
         />
       </bufferGeometry>
       <lineBasicMaterial
-        color="#CCFF00"
+        color="#8B5CF6"
         transparent
         opacity={0.06}
         depthWrite={false}

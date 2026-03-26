@@ -21,7 +21,7 @@ type VeilGlowProps = {
  * leaving a glowing trail. Pure drama.
  */
 export function VeilGlow({
-  color = "rgba(204, 255, 0, 0.08)",
+  color = "rgba(124, 58, 237, 0.06)",
   direction = "right",
   className = "",
 }: VeilGlowProps) {
