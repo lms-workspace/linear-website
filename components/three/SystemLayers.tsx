@@ -107,29 +107,26 @@ function LayerPanel({ index, layer, progressRef }: LayerPanelProps) {
         />
       </RoundedBox>
 
-      {/* Layer label — number */}
+      {/* Layer label — number + name on surface */}
       <Text
-        position={[-1.4, 0.05, 0]}
+        position={[-1.5, 0.06, 0]}
         rotation={[-Math.PI / 2, 0, 0]}
-        fontSize={0.15}
+        fontSize={0.16}
         color={layer.emissive}
         anchorX="left"
         anchorY="middle"
-        font="/fonts/inter-medium.woff"
+        letterSpacing={0.05}
       >
         {layer.icon}
       </Text>
-
-      {/* Layer label — name */}
       <Text
-        position={[-1.1, 0.05, 0]}
+        position={[-1.1, 0.06, 0]}
         rotation={[-Math.PI / 2, 0, 0]}
-        fontSize={0.13}
+        fontSize={0.14}
         color="#ffffff"
         anchorX="left"
         anchorY="middle"
-        fillOpacity={0.7}
-        font="/fonts/inter-medium.woff"
+        fillOpacity={0.8}
       >
         {layer.label}
       </Text>
@@ -271,10 +268,10 @@ function SystemLayersScene({ progressRef }: SystemLayersSceneProps) {
     if (!groupRef.current || !progressRef.current) return;
     const p = progressRef.current.value;
 
-    // 45° top-down isometric angle — labels face camera
-    // Scroll adds a gentle quarter-turn rotation around Y
-    groupRef.current.rotation.y = -0.4 + p * Math.PI * 0.25;
-    groupRef.current.rotation.x = 0; // Camera handles the tilt
+    // Scroll-driven rotation — gentle turn so you see labels
+    groupRef.current.rotation.y = -0.5 + p * Math.PI * 0.3;
+    // Tilt the stack slightly toward camera for 45° isometric feel
+    groupRef.current.rotation.x = -0.6;
 
     // Subtle breathing
     const breathe = Math.sin(state.clock.elapsedTime * 0.4) * 0.008;
@@ -283,8 +280,8 @@ function SystemLayersScene({ progressRef }: SystemLayersSceneProps) {
 
   return (
     <>
-      {/* 45° top-down camera — looking down at the stack */}
-      <PerspectiveCamera makeDefault position={[0, 6, 6]} fov={32} />
+      {/* Elevated camera — angled down at the stack */}
+      <PerspectiveCamera makeDefault position={[0, 3, 7]} fov={38} />
       <CameraLookAt />
       <ambientLight intensity={0.3} />
       <directionalLight position={[5, 8, 5]} intensity={0.35} color="#ffffff" />

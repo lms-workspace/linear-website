@@ -48,19 +48,22 @@ export function Reviews() {
     if (!gridRef.current) return;
     const cards = gridRef.current.querySelectorAll("[data-proof-card]");
 
-    gsap.from(cards, {
-      y: 50,
-      opacity: 0,
-      scale: 0.95,
-      duration: 0.7,
-      stagger: 0.1,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: gridRef.current,
-        start: "top 80%",
-        once: true,
-      },
-    });
+    gsap.fromTo(cards,
+      { y: 50, opacity: 0, scale: 0.95 },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.7,
+        stagger: 0.1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: gridRef.current,
+          start: "top 85%",
+          once: true,
+        },
+      }
+    );
   });
 
   return (
