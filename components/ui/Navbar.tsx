@@ -5,8 +5,16 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
+const SERVICE_LINKS = [
+  { href: "/services/growth-engine", label: "Growth Engine", description: "Full-funnel strategy & campaigns" },
+  { href: "/services/content-pipeline", label: "Content Pipeline", description: "AI-assisted content at scale" },
+  { href: "/services/web-development", label: "Web & App Dev", description: "Custom-coded sites & platforms" },
+  { href: "/services/ai-infrastructure", label: "AI Infrastructure", description: "Agents, automation & CRM" },
+  { href: "/services/business-operations", label: "Business Operations", description: "Analytics, sales & process" },
+  { href: "/services/ai-education", label: "AI Education", description: "Training & tool onboarding" },
+];
+
 const NAV_LINKS = [
-  { href: "/services", label: "Services" },
   { href: "/work", label: "Work" },
   { href: "/ai-tools", label: "Platform" },
   { href: "/about", label: "About" },
@@ -16,7 +24,10 @@ export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const servicesTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -42,8 +53,23 @@ export function Navbar() {
     }
   }, [mobileOpen]);
 
-  // Determine if we're at the top of a page with a dark hero
+  // Close dropdown on route change
+  useEffect(() => {
+    setServicesOpen(false);
+    setMobileOpen(false);
+  }, [pathname]);
+
+  const handleServicesEnter = () => {
+    if (servicesTimeoutRef.current) clearTimeout(servicesTimeoutRef.current);
+    setServicesOpen(true);
+  };
+
+  const handleServicesLeave = () => {
+    servicesTimeoutRef.current = setTimeout(() => setServicesOpen(false), 200);
+  };
+
   const isHome = pathname === "/";
+  const isServicesActive = pathname.startsWith("/services");
 
   return (
     <>
@@ -69,6 +95,82 @@ export function Navbar() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-10" aria-label="Primary">
+            {/* Services dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={handleServicesEnter}
+              onMouseLeave={handleServicesLeave}
+            >
+              <Link
+                href="/services"
+                className={`relative font-body text-base font-medium tracking-wide transition-colors duration-300 py-2 inline-flex items-center gap-1.5 ${
+                  isServicesActive
+                    ? "text-[#7C3AED]"
+                    : scrolled
+                      ? "text-[#52525B] hover:text-[#18181B]"
+                      : isHome
+                        ? "text-white/70 hover:text-white"
+                        : "text-[#52525B] hover:text-[#18181B]"
+                }`}
+              >
+                Services
+                <svg
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+                {isServicesActive && (
+                  <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-[#7C3AED] shadow-[0_0_8px_rgba(124,58,237,0.5)]" />
+                )}
+              </Link>
+
+              {/* Dropdown panel */}
+              <div
+                ref={dropdownRef}
+                className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 transition-all duration-200 ${
+                  servicesOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
+                }`}
+              >
+                <div className="bg-white rounded-2xl border border-black/[0.06] shadow-[0_8px_40px_rgba(0,0,0,0.08)] p-3 w-[420px]">
+                  <div className="grid grid-cols-2 gap-1">
+                    {SERVICE_LINKS.map(({ href, label, description }) => (
+                      <Link
+                        key={href}
+                        href={href}
+                        className={`group rounded-xl px-4 py-3 transition-all duration-200 hover:bg-[#7C3AED]/[0.04] ${
+                          pathname === href ? "bg-[#7C3AED]/[0.06]" : ""
+                        }`}
+                      >
+                        <span className={`block font-body font-semibold text-sm transition-colors ${
+                          pathname === href ? "text-[#7C3AED]" : "text-[#18181B] group-hover:text-[#7C3AED]"
+                        }`}>
+                          {label}
+                        </span>
+                        <span className="block text-[#71717A] text-xs mt-0.5 leading-relaxed">
+                          {description}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                  <div className="border-t border-black/[0.04] mt-2 pt-2 px-4 pb-1">
+                    <Link
+                      href="/services"
+                      className="font-mono text-[#7C3AED] text-xs tracking-wider uppercase hover:text-[#6D28D9] transition-colors"
+                    >
+                      View all services &rarr;
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Other nav links */}
             {NAV_LINKS.map(({ href, label }) => {
               const isActive = pathname === href;
               return (
@@ -128,8 +230,38 @@ export function Navbar() {
           mobileOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
-        <nav className="flex flex-col items-center gap-12">
-          {[...NAV_LINKS, { href: "/contact", label: "Contact" }].map(({ href, label }) => (
+        <nav className="flex flex-col items-center gap-8 w-full px-8 max-w-md">
+          {/* Services header */}
+          <Link
+            href="/services"
+            data-mobile-link
+            onClick={() => setMobileOpen(false)}
+            className={`font-display font-bold text-4xl sm:text-5xl tracking-tight transition-colors duration-300 ${
+              pathname === "/services" ? "text-[#7C3AED]" : "text-[#18181B] hover:text-[#7C3AED]"
+            }`}
+          >
+            Services
+          </Link>
+          {/* Service sub-links */}
+          <div className="flex flex-wrap justify-center gap-3 -mt-4">
+            {SERVICE_LINKS.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                data-mobile-link
+                onClick={() => setMobileOpen(false)}
+                className={`font-body text-sm px-3 py-1.5 rounded-full border transition-colors duration-200 ${
+                  pathname === href
+                    ? "text-[#7C3AED] border-[#7C3AED]/30 bg-[#7C3AED]/[0.06]"
+                    : "text-[#52525B] border-black/[0.06] hover:text-[#7C3AED] hover:border-[#7C3AED]/20"
+                }`}
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
+          {/* Other nav links */}
+          {NAV_LINKS.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
@@ -142,6 +274,16 @@ export function Navbar() {
               {label}
             </Link>
           ))}
+          <Link
+            href="/contact"
+            data-mobile-link
+            onClick={() => setMobileOpen(false)}
+            className={`font-display font-bold text-4xl sm:text-5xl tracking-tight transition-colors duration-300 ${
+              pathname === "/contact" ? "text-[#7C3AED]" : "text-[#18181B] hover:text-[#7C3AED]"
+            }`}
+          >
+            Contact
+          </Link>
         </nav>
       </div>
     </>

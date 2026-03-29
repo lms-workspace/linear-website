@@ -5,6 +5,9 @@ import { SplitText } from "@/components/ui/SplitText";
 
 const FOOTER_LINKS = [
   { href: "/services", label: "Services" },
+  { href: "/services/growth-engine", label: "Growth Engine" },
+  { href: "/services/ai-infrastructure", label: "AI Infrastructure" },
+  { href: "/services/web-development", label: "Web Dev" },
   { href: "/work", label: "Work" },
   { href: "/ai-tools", label: "Platform" },
   { href: "/about", label: "About" },

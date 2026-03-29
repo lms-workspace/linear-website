@@ -24,18 +24,21 @@ export function WhoWeWorkWith() {
     if (!listRef.current) return;
     const items = listRef.current.querySelectorAll("[data-fit-item]");
 
-    gsap.from(items, {
-      x: 60,
-      opacity: 0,
-      duration: 0.7,
-      stagger: 0.12,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: listRef.current,
-        start: "top 75%",
-        once: true,
-      },
-    });
+    gsap.fromTo(items,
+      { x: 60, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: listRef.current,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
   });
 
   return (
