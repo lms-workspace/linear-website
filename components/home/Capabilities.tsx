@@ -12,36 +12,42 @@ gsap.registerPlugin(ScrollTrigger);
 const CAPABILITIES = [
   {
     title: "Growth\nEngine",
+    href: "/services/growth-engine",
     description: "Full-funnel strategy, brand systems, campaign architecture, market intelligence.",
     span: "col-span-1 md:col-span-2 md:row-span-2",
     accent: true,
   },
   {
     title: "Content Pipeline",
+    href: "/services/content-pipeline",
     description: "Video, copy, design, social — AI-assisted production at scale.",
     span: "col-span-1 row-span-1",
     accent: false,
   },
   {
     title: "Web & App Dev",
+    href: "/services/web-development",
     description: "Production-grade websites, dashboards, UX/UI. Hard-coded, not templated.",
     span: "col-span-1 row-span-1",
     accent: false,
   },
   {
     title: "AI Infrastructure",
+    href: "/services/ai-infrastructure",
     description: "Custom agents, workflow automation, CRM integration, tool development.",
     span: "col-span-1 md:row-span-2",
     accent: false,
   },
   {
     title: "Business Ops",
+    href: "/services/business-operations",
     description: "CRM systems, analytics dashboards, SaaS development, process architecture.",
     span: "col-span-1 row-span-1",
     accent: false,
   },
   {
     title: "AI Education",
+    href: "/services/ai-education",
     description: "Team training, tool onboarding, operational integration.",
     span: "col-span-1 md:col-span-2 row-span-1",
     accent: false,
@@ -55,19 +61,28 @@ export function Capabilities() {
     if (!gridRef.current) return;
     const cards = gridRef.current.querySelectorAll("[data-bento-card]");
 
-    gsap.from(cards, {
-      y: 80,
-      opacity: 0,
-      scale: 0.92,
-      duration: 0.8,
-      stagger: { each: 0.08, from: "random" },
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: gridRef.current,
-        start: "top 80%",
-        once: true,
-      },
-    });
+    // fromTo ensures cards always reach visible end state,
+    // even if ScrollTrigger misses the trigger on restore/reload
+    gsap.fromTo(
+      cards,
+      { y: 40, opacity: 0, scale: 0.96 },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.6,
+        stagger: { each: 0.06, from: "start" },
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: gridRef.current,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    // Refresh after images/fonts settle so trigger positions are accurate
+    requestAnimationFrame(() => ScrollTrigger.refresh());
   });
 
   return (
@@ -94,7 +109,7 @@ export function Capabilities() {
         {CAPABILITIES.map((cap) => (
           <Link
             key={cap.title}
-            href="/services"
+            href={cap.href}
             data-bento-card
             className={`group relative rounded-2xl p-7 overflow-hidden transition-all duration-500 ${cap.span}
               ${cap.accent
@@ -120,7 +135,7 @@ export function Capabilities() {
 
               <div className="flex items-end justify-between gap-4">
                 <p className={`leading-relaxed max-w-[30ch] ${
-                  cap.accent ? "text-white/70" : "text-[#52525B]"
+                  cap.accent ? "text-white/80" : "text-[#3F3F46]"
                 }`}>
                   {cap.description}
                 </p>

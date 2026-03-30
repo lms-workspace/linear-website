@@ -5,7 +5,6 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SplitText } from "@/components/ui/SplitText";
 import { MagneticButton } from "@/components/ui/MagneticButton";
-import { TerminalBlock } from "@/components/ui/TerminalBlock";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -31,17 +30,6 @@ const STEPS = [
   },
 ];
 
-const TERMINAL_LINES = [
-  { type: "command" as const, text: "lms deploy --client acme-corp", delay: 400 },
-  { type: "output" as const, text: "Scanning business model...", delay: 300 },
-  { type: "output" as const, text: "Mapping growth vectors...", delay: 200 },
-  { type: "success" as const, text: "\u2713 6 automation workflows configured", delay: 300 },
-  { type: "success" as const, text: "\u2713 CRM pipeline deployed", delay: 200 },
-  { type: "success" as const, text: "\u2713 Content engine online", delay: 200 },
-  { type: "success" as const, text: "\u2713 Analytics dashboard live", delay: 200 },
-  { type: "command" as const, text: "lms status", delay: 600 },
-  { type: "accent" as const, text: "All systems operational. Revenue compounding.", delay: 300 },
-];
 
 export function HowItWorks() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -70,32 +58,38 @@ export function HowItWorks() {
     const badges = sectionRef.current.querySelectorAll("[data-step-badge]");
     const texts = sectionRef.current.querySelectorAll("[data-step-text]");
 
-    gsap.from(badges, {
-      scale: 0,
-      opacity: 0,
-      duration: 0.5,
-      stagger: 0.2,
-      ease: "back.out(2)",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 70%",
-        once: true,
-      },
-    });
+    gsap.fromTo(badges,
+      { scale: 0, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.2,
+        ease: "back.out(2)",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
 
-    gsap.from(texts, {
-      y: 30,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.2,
-      delay: 0.3,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 70%",
-        once: true,
-      },
-    });
+    gsap.fromTo(texts,
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        stagger: 0.2,
+        delay: 0.3,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
   }, { scope: sectionRef });
 
   return (
@@ -165,16 +159,7 @@ export function HowItWorks() {
             ))}
           </div>
 
-          {/* Terminal demo */}
-          <div className="mt-14 max-w-4xl mx-auto">
-            <TerminalBlock
-              lines={TERMINAL_LINES}
-              title="lms-deploy"
-              typeSpeed={18}
-            />
-          </div>
-
-          <div className="text-center mt-10">
+          <div className="text-center mt-14">
             <MagneticButton strength={0.25}>
               <Link
                 href="/contact"

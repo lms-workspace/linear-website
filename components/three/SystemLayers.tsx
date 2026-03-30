@@ -16,8 +16,8 @@ const LAYERS = [
   { label: "AI Intelligence", icon: "06", color: "#1a1a3e", emissive: "#8B5CF6" },
 ];
 
-const EXPLODED_GAP = 1.3;
-const ASSEMBLED_GAP = 0.1;
+const EXPLODED_GAP = 1.6;
+const ASSEMBLED_GAP = 0.12;
 const CENTER = (LAYERS.length - 1) / 2;
 
 /* ── Easing ───────────────────────────────────────────── */
@@ -58,19 +58,19 @@ function LayerPanel({ index, layer, progressRef }: LayerPanelProps) {
     const assembledY = (index - CENTER) * ASSEMBLED_GAP;
     groupRef.current.position.y = THREE.MathUtils.lerp(explodedY, assembledY, ep);
 
-    // Opacity increases as assembled
-    matRef.current.opacity = 0.15 + ep * 0.25;
+    // Opacity — bolder panels, Spline-style
+    matRef.current.opacity = 0.25 + ep * 0.35;
 
-    // Emissive intensity
+    // Emissive intensity — stronger glow on assembly
     if (isTop) {
-      matRef.current.emissiveIntensity = 0.08 + ep * 0.4;
+      matRef.current.emissiveIntensity = 0.12 + ep * 0.5;
     } else {
-      matRef.current.emissiveIntensity = 0.03 + ep * 0.1;
+      matRef.current.emissiveIntensity = 0.05 + ep * 0.18;
     }
 
-    // Edge glow
+    // Edge glow — more visible
     if (glowRef.current) {
-      glowRef.current.opacity = 0.03 + ep * 0.1;
+      glowRef.current.opacity = 0.05 + ep * 0.15;
     }
   });
 
@@ -82,9 +82,9 @@ function LayerPanel({ index, layer, progressRef }: LayerPanelProps) {
           ref={matRef}
           color={layer.color}
           emissive={layer.emissive}
-          emissiveIntensity={0.03}
+          emissiveIntensity={0.05}
           transparent
-          opacity={0.15}
+          opacity={0.25}
           roughness={0.08}
           metalness={0.15}
           clearcoat={1.0}
@@ -100,7 +100,7 @@ function LayerPanel({ index, layer, progressRef }: LayerPanelProps) {
           ref={glowRef}
           color={isTop ? "#8B5CF6" : layer.emissive}
           transparent
-          opacity={0.03}
+          opacity={0.05}
           blending={THREE.AdditiveBlending}
           side={THREE.DoubleSide}
           depthWrite={false}
@@ -268,25 +268,24 @@ function SystemLayersScene({ progressRef }: SystemLayersSceneProps) {
     if (!groupRef.current || !progressRef.current) return;
     const p = progressRef.current.value;
 
-    // Scroll-driven rotation — gentle turn so you see labels
-    groupRef.current.rotation.y = -0.5 + p * Math.PI * 0.3;
-    // Tilt the stack slightly toward camera for 45° isometric feel
-    groupRef.current.rotation.x = -0.6;
+    // Scroll-driven Y rotation only — camera handles the 45° down angle
+    groupRef.current.rotation.y = -0.4 + p * Math.PI * 0.25;
 
     // Subtle breathing
-    const breathe = Math.sin(state.clock.elapsedTime * 0.4) * 0.008;
+    const breathe = Math.sin(state.clock.elapsedTime * 0.4) * 0.006;
     groupRef.current.rotation.z = breathe;
   });
 
   return (
     <>
-      {/* Elevated camera — angled down at the stack */}
-      <PerspectiveCamera makeDefault position={[0, 3, 7]} fov={38} />
+      {/* High perspective — 45° isometric, pulled back for cinematic depth */}
+      <PerspectiveCamera makeDefault position={[0, 7, 7]} fov={32} />
       <CameraLookAt />
-      <ambientLight intensity={0.3} />
-      <directionalLight position={[5, 8, 5]} intensity={0.35} color="#ffffff" />
-      <pointLight position={[-3, -1, 4]} intensity={0.3} color="#8B5CF6" />
-      <pointLight position={[3, 2, -2]} intensity={0.15} color="#6366F1" />
+      <ambientLight intensity={0.2} />
+      <directionalLight position={[5, 10, 5]} intensity={0.5} color="#ffffff" />
+      <pointLight position={[-4, -2, 5]} intensity={0.5} color="#8B5CF6" />
+      <pointLight position={[4, 3, -3]} intensity={0.25} color="#6366F1" />
+      <pointLight position={[0, -4, 0]} intensity={0.15} color="#7C3AED" />
       <Environment preset="night" />
 
       <group ref={groupRef}>
