@@ -84,15 +84,13 @@ export function Navbar() {
         }`}
       >
         <div className="flex items-center justify-between px-8 md:px-12 lg:px-20 xl:px-32 h-20 md:h-24">
-          {/* Logo — mark only (wordmark lives in footer + hero + OG) */}
+          {/* Logo — LMS wordmark (mark lives in favicon, OG, app icon, social) */}
           <Link href="/" className="flex items-center group" aria-label="Linear Marketing Solutions — Home">
-            <img
-              src={scrolled || !isHome ? "/lms-mark.svg" : "/lms-mark-dark.svg"}
-              alt="Linear Marketing Solutions"
-              className="w-12 h-12 lg:w-14 lg:h-14 transition-transform duration-300 group-hover:scale-105"
-              width={56}
-              height={56}
-            />
+            <span className={`font-display font-black text-4xl lg:text-5xl tracking-[-0.04em] leading-none transition-colors duration-300 ${
+              scrolled ? "text-[#0F0A1F]" : isHome ? "text-white" : "text-[#0F0A1F]"
+            }`}>
+              <span className="text-[#7C3AED]">L</span>MS
+            </span>
           </Link>
 
           {/* Desktop nav */}
