@@ -85,11 +85,18 @@ export function Navbar() {
       >
         <div className="flex items-center justify-between px-8 md:px-12 lg:px-20 xl:px-32 h-20 md:h-24">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-3 group" aria-label="Linear Marketing Solutions — Home">
+            <img
+              src={scrolled || !isHome ? "/lms-mark.svg" : "/lms-mark-dark.svg"}
+              alt=""
+              className="w-10 h-10 lg:w-11 lg:h-11 transition-transform duration-300 group-hover:scale-105"
+              width={44}
+              height={44}
+            />
             <span className={`font-display font-bold text-3xl lg:text-4xl tracking-tight transition-colors duration-300 ${
               scrolled ? "text-[#18181B]" : isHome ? "text-white" : "text-[#18181B]"
             }`}>
-              LMS
+              <span className="text-[#7C3AED]">L</span>MS
             </span>
           </Link>
 
