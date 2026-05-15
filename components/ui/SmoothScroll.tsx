@@ -1,6 +1,9 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { ReactLenis } from "@studio-freight/react-lenis";
+
+const BARE_ROUTES = new Set(["/nanofiber-infocomm"]);
 
 /**
  * Lenis smooth scroll wrapper.
@@ -8,6 +11,8 @@ import { ReactLenis } from "@studio-freight/react-lenis";
  * Duration controls inertia — higher = more ice-slide feel.
  */
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  if (pathname && BARE_ROUTES.has(pathname)) return <>{children}</>;
   return (
     <ReactLenis
       root

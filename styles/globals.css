@@ -15,6 +15,16 @@ html {
 
 @media (pointer: fine) {
   * { cursor: none !important; }
+  /* Bare routes (e.g. /nanofiber-infocomm) opt out of the custom cursor */
+  [data-bare-route],
+  [data-bare-route] * { cursor: auto !important; }
+  [data-bare-route] a,
+  [data-bare-route] button,
+  [data-bare-route] [role="button"],
+  [data-bare-route] select,
+  [data-bare-route] [data-cursor-pointer] { cursor: pointer !important; }
+  [data-bare-route] input,
+  [data-bare-route] textarea { cursor: text !important; }
 }
 
 body {
