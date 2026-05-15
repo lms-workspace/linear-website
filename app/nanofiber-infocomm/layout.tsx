@@ -34,6 +34,9 @@ export const metadata: Metadata = {
   title: "Mission-Critical Fiber From Camera to Core | nanoFIBER × InfoComm 2026",
   description:
     "nanoFIBER tactical fiber for mission-critical broadcast and Pro AV. Talk specs with the nanoFIBER team — at InfoComm 2026 in Las Vegas (June 17–19) or any time after.",
+  // Campaign landing page — reachable by direct link only (cards, LinkedIn,
+  // email sig). Not linked from the LMS nav and not for organic search.
+  robots: { index: false, follow: false },
   alternates: {
     canonical: "https://linearmarketingsolutions.com/nanofiber-infocomm",
   },
