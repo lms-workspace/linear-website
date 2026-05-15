@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
+
+const BARE_ROUTES = new Set(["/nanofiber-infocomm"]);
 
 /**
  * Custom cursor (inspired by cmcc.vc).
@@ -9,10 +12,13 @@ import { gsap } from "gsap";
  * Scales up on hoverable elements, hides on mobile.
  */
 export function CustomCursor() {
+  const pathname = usePathname();
+  const isBare = !!pathname && BARE_ROUTES.has(pathname);
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (isBare) return;
     const dot = dotRef.current;
     const ring = ringRef.current;
     if (!dot || !ring) return;
@@ -85,7 +91,9 @@ export function CustomCursor() {
       });
       observer.disconnect();
     };
-  }, []);
+  }, [isBare]);
+
+  if (isBare) return null;
 
   return (
     <>
