@@ -74,11 +74,11 @@ export function Meet() {
       <div className={styles.meetInner}>
         <header className={styles.meetHeader}>
           <h2 id="nf-meet-heading" className={styles.meetTitle}>
-            Get on Blake&apos;s calendar.
+            Book a call with the team.
           </h2>
           <p className={styles.meetSub}>
             30-minute call — pick a slot below, at InfoComm (June 17–19) or any time after.
-            Or send a brief and Blake replies within one business day.
+            Or send a brief and we reply within one business day.
           </p>
         </header>
 
@@ -155,7 +155,7 @@ function CallRequestPanel() {
         <p className={styles.successTag}>Call Requested</p>
         <h3 className={styles.successTitle}>{slotLabel} · {timeLabel} PT</h3>
         <p className={styles.successBody}>
-          Blake confirms within one business day. Add this to your calendar as
+          We confirm within one business day. Add this to your calendar as
           tentative — final invite follows over email.
         </p>
       </div>
@@ -166,7 +166,7 @@ function CallRequestPanel() {
     <article className={styles.panel} aria-labelledby="nf-scheduler-heading">
       <span className={styles.panelTag}>30-Min Call</span>
       <h3 id="nf-scheduler-heading" className={styles.panelHeading}>
-        Pick a time with Blake
+        Pick a time with the team
       </h3>
       <p className={styles.panelLede}>
         Spec review, project scoping, sample requests. Slots Mon–Fri, 9 AM – 5 PM
@@ -369,7 +369,7 @@ function BriefFormPanel() {
     return (
       <div id="brief" className={`${styles.panel} ${styles.success}`} role="status" aria-live="polite">
         <p className={styles.successTag}>Brief Received</p>
-        <h3 className={styles.successTitle}>Got it. Blake will be in touch.</h3>
+        <h3 className={styles.successTitle}>Got it. We&apos;ll be in touch.</h3>
         <p className={styles.successBody}>
           Expect a reply within one business day. If you&apos;re heading to
           InfoComm, a calendar invite follows.
@@ -385,7 +385,7 @@ function BriefFormPanel() {
         Send the build details
       </h3>
       <p className={styles.panelLede}>
-        Share fiber count, deploy mode, and timeline. Blake replies
+        Share fiber count, deploy mode, and timeline. We reply
         personally — same flow before, during, or after InfoComm.
       </p>
 

@@ -33,14 +33,14 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Mission-Critical Fiber From Camera to Core | nanoFIBER × InfoComm 2026",
   description:
-    "nanoFIBER tactical fiber for mission-critical broadcast and Pro AV. Talk specs with Blake Pederson — at InfoComm 2026 in Las Vegas (June 17–19) or any time after.",
+    "nanoFIBER tactical fiber for mission-critical broadcast and Pro AV. Talk specs with the nanoFIBER team — at InfoComm 2026 in Las Vegas (June 17–19) or any time after.",
   alternates: {
     canonical: "https://linearmarketingsolutions.com/nanofiber-infocomm",
   },
   openGraph: {
     title: "Mission-Critical Fiber From Camera to Core",
     description:
-      "Tactical-armored single-mode and multimode for broadcast, Pro AV, stadium, and data-center deployments. Connect with Blake at InfoComm 2026 — or after.",
+      "Tactical-armored single-mode and multimode for broadcast, Pro AV, stadium, and data-center deployments. Connect with the nanoFIBER team at InfoComm 2026 — or after.",
     url: "https://linearmarketingsolutions.com/nanofiber-infocomm",
     siteName: "nanoFIBER × Linear Marketing Solutions",
     type: "website",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mission-Critical Fiber From Camera to Core",
     description:
-      "nanoFIBER tactical fiber for broadcast and Pro AV. Book a call with Blake — InfoComm 2026 or after.",
+      "nanoFIBER tactical fiber for broadcast and Pro AV. Book a call with the team — InfoComm 2026 or after.",
   },
 };
 

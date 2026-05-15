@@ -25,8 +25,8 @@ export function Hero() {
           <p className={styles.heroSub}>
             Tactical-armored single-mode and multimode for broadcast,
             Pro AV, stadium, and data-center deployments. Field-proven,
-            OpticalCON-terminable, deployed today. Talk specs with Blake —
-            at the show or after.
+            OpticalCON-terminable, deployed today. Talk specs with the
+            team — at the show or after.
           </p>
           <div className={styles.heroCta}>
             <a href="#meet" className={styles.btn}>
