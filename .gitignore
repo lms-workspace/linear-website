@@ -25,3 +25,6 @@ npm-debug.log*
 *.swo
 tsconfig.tsbuildinfo
 .vercel
+
+# Local screenshot scratch
+.tmp-screenshots/

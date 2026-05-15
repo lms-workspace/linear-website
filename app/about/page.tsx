@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { AboutContent } from "@/components/about/AboutContent";
 
 export const metadata: Metadata = {
-  title: "About — AI-Powered Marketing from Southern California",
+  title: "About — Custom AI Marketing Solutions | LMS",
   description:
-    "Based in Rancho Cucamonga, CA. One operator with AI-native infrastructure outperforming full agencies across Los Angeles, Inland Empire, Orange County, and San Diego.",
+    "LMS is a full-scale marketing agency that builds custom AI solutions for established businesses. From automated content posting to agentic C-suite orchestration.",
 };
 
 export default function About() {
